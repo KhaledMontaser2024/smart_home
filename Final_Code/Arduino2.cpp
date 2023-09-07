@@ -20,6 +20,7 @@ Servo home_door ;
 Servo room_door ;
 
 ros::NodeHandle nh;
+std_msgs::Int16 pas;  
 
 void messageCB(const std_msgs::Char &toggle_msg)
 {
@@ -32,6 +33,7 @@ void password (const std_msgs::Int16 &toggl_msg)
 }
 ros::Subscriber<std_msgs::Char> sub("chatter",messageCB);
 ros::Subscriber<std_msgs::Int16> sub2("topic1",password);
+ros::Publisher pub("topic2", &pas);
 
 
 int GetBit(char msg,char bt)
@@ -76,6 +78,10 @@ void homedoor(short signed int password)
     {home_door.write(100);
      delay(3000);
      home_door.write(0);
+    }
+    else 
+    {
+      pub.publish(&pass);
     }
 
 }
