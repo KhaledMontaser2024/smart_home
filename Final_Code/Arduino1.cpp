@@ -39,7 +39,6 @@ void loop()
   light = analogRead(LDR);
   LDR_sensor();
   nh.spinOnce();
-  delay(500);
 }
 
 void LDR_sensor()

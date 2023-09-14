@@ -69,8 +69,6 @@ void loop()
   Current_millis = millis();
   roomdoor();
   nh2.spinOnce();
-  delay(500); 
-  
 }
 
 void Actuators_CallBack(const std_msgs::Char &SensorsMessage)
